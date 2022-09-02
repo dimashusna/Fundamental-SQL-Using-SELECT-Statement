@@ -1,0 +1,64 @@
+
+#/livecode/213/385/1899
+SELECT nama_produk FROM ms_produk;
+
+
+#livecode/213/385/1901
+SELECT nama_produk , harga FROM ms_produk;
+
+
+#livecode/213/385/1903 (Membatasi jumlah item yang muncul)
+SELECT nama_produk , harga FROM ms_produk LIMIT 5;
+
+
+#livecode/213/385/1988 (menghilangkan nama yang double)
+SELECT DISTINCT nama_customer , alamat FROM ms_pelanggan;
+
+
+#livecode/213/386/1909
+SELECT no_urut As nomor,nama_produk As nama FROM ms_produk;
+
+
+#livecode/213/386/1911 (Menghilangkan keyword As)
+SELECT no_urut nomor , nama_produk nama FROM ms_produk
+
+
+#livecode/213/386/1913 (menggabungkan prefix dan Alias)
+SELECT ms_produk.harga As harga_jual FROM ms_produk;
+
+
+#livecode/213/386/1914 (Menggunakan alias pada Tabel)
+SELECT * FROM ms_produk t2
+
+
+#livecode/213/386/1915 (Prefix dengan Alias tabel)
+SELECT t2.nama_produk,t2.harga FROM ms_produk t2
+
+
+#/livecode/213/387/1919 (Menggunakan Where)
+SELECT * FROM ms_produk WHERE nama_produk = 'Tas Travel Organizer DQLab'
+
+
+#livecode/213/387/1920 (Menggunakan Operand OR)
+SELECT * FROM ms_produk WHERE nama_produk ='Gantungan Kunci DQLab'OR nama_produk = 'Tas Travel Organizer DQLab'OR nama_produk ='Flashdisk DQLab 64 GB'
+
+
+#livecode/213/387/1921 (Filter Untuk Angka)
+SELECT * FROM ms_produk WHERE harga > 50000;
+
+
+#livecode/213/387/1924 (Menggunakan Operand AND)
+SELECT * FROM ms_produk WHERE nama_produk = 'Gantungan Kunci DQLab' AND harga < 50000;
+
+
+
+#livecode/213/388/1929 (Proyek dari Cabang A)
+“Jadi, apakah kamu bisa menyiapkan data transaksi penjualan dengan total revenue >= IDR 100.000? 
+Format datanya yang akan kamu tampilkan adalah: kode_pelanggan, nama_produk, qty, harga, dan total, serta diurutkan mulai dari total revenue terbesar,” pinta Senja padaku.
+
+SELECT kode_pelanggan, nama_produk, qty, harga, qty*harga AS total
+FROM tr_penjualan
+WHERE qty*harga >= 100000
+ORDER BY total DESC;
+
+
